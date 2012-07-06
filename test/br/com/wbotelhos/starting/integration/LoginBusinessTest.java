@@ -8,13 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import br.com.wbotelhos.starting.business.LoginBusiness;
 import br.com.wbotelhos.starting.helper.Given;
-import br.com.wbotelhos.starting.model.Usuario;
-import br.com.wbotelhos.starting.repository.LoginRepository;
 
 import com.jintegrity.core.JIntegrity;
 import com.jintegrity.helper.JPAHelper;
+import com.mehana.smschat.business.LoginBusiness;
+import com.mehana.smschat.model.Usuario;
+import com.mehana.smschat.repository.LoginRepository;
 
 public class LoginBusinessTest {
 

@@ -14,14 +14,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import br.com.wbotelhos.starting.business.UsuarioBusiness;
-import br.com.wbotelhos.starting.exception.CommonException;
 import br.com.wbotelhos.starting.helper.Given;
-import br.com.wbotelhos.starting.model.Usuario;
-import br.com.wbotelhos.starting.repository.UsuarioRepository;
 
 import com.jintegrity.core.JIntegrity;
 import com.jintegrity.helper.JPAHelper;
+import com.mehana.smschat.business.UsuarioBusiness;
+import com.mehana.smschat.exception.CommonException;
+import com.mehana.smschat.model.Usuario;
+import com.mehana.smschat.repository.UsuarioRepository;
 
 public class UsuarioBusinessTest {
 

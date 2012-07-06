@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import br.com.wbotelhos.starting.model.Usuario;
-import br.com.wbotelhos.starting.model.UsuarioImage;
-import br.com.wbotelhos.starting.model.common.EntityWrapper;
-import br.com.wbotelhos.starting.model.common.Perfil;
+import com.mehana.smschat.model.Usuario;
+import com.mehana.smschat.model.UsuarioImage;
+import com.mehana.smschat.model.common.EntityWrapper;
+import com.mehana.smschat.model.common.Perfil;
+
 
 public class Given {
 

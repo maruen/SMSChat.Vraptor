@@ -6,7 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import br.com.wbotelhos.starting.util.Image;
+import com.mehana.smschat.util.Image;
+
 
 public class ImageTest {
 

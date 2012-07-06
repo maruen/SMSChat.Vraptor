@@ -8,10 +8,11 @@ import org.junit.Test;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import com.mehana.smschat.annotation.Public;
+import com.mehana.smschat.controller.IndexController;
+
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.util.test.MockResult;
-import br.com.wbotelhos.starting.annotation.Public;
-import br.com.wbotelhos.starting.controller.IndexController;
 
 public class IndexControllerTest {
 

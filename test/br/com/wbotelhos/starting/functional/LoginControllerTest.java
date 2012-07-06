@@ -15,13 +15,14 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import com.mehana.smschat.annotation.Public;
+import com.mehana.smschat.component.UserSession;
+import com.mehana.smschat.controller.LoginController;
+import com.mehana.smschat.model.Usuario;
+import com.mehana.smschat.repository.LoginRepository;
+
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.util.test.MockResult;
-import br.com.wbotelhos.starting.annotation.Public;
-import br.com.wbotelhos.starting.component.UserSession;
-import br.com.wbotelhos.starting.controller.LoginController;
-import br.com.wbotelhos.starting.model.Usuario;
-import br.com.wbotelhos.starting.repository.LoginRepository;
 
 public class LoginControllerTest {
 

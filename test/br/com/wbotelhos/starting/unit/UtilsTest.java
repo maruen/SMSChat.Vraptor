@@ -4,7 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.wbotelhos.starting.util.Utils;
+import com.mehana.smschat.util.Utils;
+
 
 public class UtilsTest {
 

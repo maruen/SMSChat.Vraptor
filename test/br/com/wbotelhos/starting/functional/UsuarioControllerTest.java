@@ -1,6 +1,6 @@
 package br.com.wbotelhos.starting.functional;
 
-import static br.com.wbotelhos.starting.util.Utils.i18n;
+import static com.mehana.smschat.util.Utils.i18n;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -17,19 +17,20 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
+import com.mehana.smschat.annotation.Permission;
+import com.mehana.smschat.component.UserSession;
+import com.mehana.smschat.controller.UsuarioController;
+import com.mehana.smschat.model.Usuario;
+import com.mehana.smschat.model.common.Perfil;
+import com.mehana.smschat.repository.UsuarioRepository;
+
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.core.Localization;
 import br.com.caelum.vraptor.util.test.MockLocalization;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
-import br.com.wbotelhos.starting.annotation.Permission;
-import br.com.wbotelhos.starting.component.UserSession;
-import br.com.wbotelhos.starting.controller.UsuarioController;
 import br.com.wbotelhos.starting.helper.Given;
-import br.com.wbotelhos.starting.model.Usuario;
-import br.com.wbotelhos.starting.model.common.Perfil;
-import br.com.wbotelhos.starting.repository.UsuarioRepository;
 
 public class UsuarioControllerTest {
 

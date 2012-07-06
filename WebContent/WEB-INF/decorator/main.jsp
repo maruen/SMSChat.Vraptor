@@ -14,7 +14,7 @@
 
 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css"/>
 
-		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/1-jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/jquery-1.7.1.js"></script>
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/jquery.colorbox-1.3.16.min.js"></script>
 
