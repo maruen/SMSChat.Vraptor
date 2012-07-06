@@ -41,7 +41,6 @@ public class UsuarioBusiness extends GenericImageBusiness<Usuario, UsuarioImage>
 
 	@Override
 	public Usuario loadById(Long id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

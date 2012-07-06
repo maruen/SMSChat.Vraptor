@@ -1,4 +1,4 @@
-package br.com.wbotelhos.starting.unit;
+package com.mehana.smschat.unit;
 
 import static org.junit.Assert.assertEquals;
 

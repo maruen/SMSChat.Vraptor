@@ -1,4 +1,4 @@
-package br.com.wbotelhos.starting.functional;
+package com.mehana.smschat.functional;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

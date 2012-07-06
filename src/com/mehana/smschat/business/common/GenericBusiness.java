@@ -14,19 +14,19 @@ import com.mehana.smschat.repository.common.GenericRepository;
 public abstract class GenericBusiness<T extends AbstractEntity> implements GenericRepository<T> {
 
 	protected final EntityManager manager;
-	private final Class<T> clazz;
+	private final Class<T> aClass;
 
 	protected GenericBusiness(EntityManager manager) {
 		this.manager = manager;
 
 		@SuppressWarnings("unchecked")
-		Class<T> clazz = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		Class<T> aClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
-		this.clazz = clazz;
+		this.aClass = aClass;
 	}
 
 	public Collection<T> all() {
-		Query query = manager.createQuery("from " + clazz.getName());
+		Query query = manager.createQuery("from " + aClass.getName());
 
 		@SuppressWarnings("unchecked")
 		Collection<T> list = query.getResultList();
@@ -35,11 +35,11 @@ public abstract class GenericBusiness<T extends AbstractEntity> implements Gener
 	}
 
 	public T find(Long id) {
-		return manager.find(clazz, id);
+		return manager.find(aClass, id);
 	}
 
 	public void remove(T entity) {
-		manager.remove(manager.getReference(clazz, entity.getId()));
+		manager.remove(manager.getReference(aClass, entity.getId()));
 	}
 
 	public T save(T entity) throws CommonException {

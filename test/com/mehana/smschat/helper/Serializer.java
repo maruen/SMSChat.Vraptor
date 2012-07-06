@@ -1,4 +1,4 @@
-package br.com.wbotelhos.starting.helper;
+package com.mehana.smschat.helper;
 
 import java.io.Writer;
 

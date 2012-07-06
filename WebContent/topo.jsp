@@ -1,1 +1,1 @@
-<div id="title">VRAPTOR STARTING PROJECT</div>
+<div id="title">SMSChat</div>

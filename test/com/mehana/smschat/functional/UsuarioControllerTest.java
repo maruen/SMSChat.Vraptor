@@ -1,4 +1,4 @@
-package br.com.wbotelhos.starting.functional;
+package com.mehana.smschat.functional;
 
 import static com.mehana.smschat.util.Utils.i18n;
 import static org.junit.Assert.assertEquals;
@@ -20,6 +20,7 @@ import org.mockito.Spy;
 import com.mehana.smschat.annotation.Permission;
 import com.mehana.smschat.component.UserSession;
 import com.mehana.smschat.controller.UsuarioController;
+import com.mehana.smschat.helper.Given;
 import com.mehana.smschat.model.Usuario;
 import com.mehana.smschat.model.common.Perfil;
 import com.mehana.smschat.repository.UsuarioRepository;
@@ -30,7 +31,6 @@ import br.com.caelum.vraptor.core.Localization;
 import br.com.caelum.vraptor.util.test.MockLocalization;
 import br.com.caelum.vraptor.util.test.MockResult;
 import br.com.caelum.vraptor.util.test.MockValidator;
-import br.com.wbotelhos.starting.helper.Given;
 
 public class UsuarioControllerTest {
 

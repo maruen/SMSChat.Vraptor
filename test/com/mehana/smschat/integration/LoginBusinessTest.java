@@ -1,4 +1,4 @@
-package br.com.wbotelhos.starting.integration;
+package com.mehana.smschat.integration;
 
 import static junit.framework.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import br.com.wbotelhos.starting.helper.Given;
 
 import com.jintegrity.core.JIntegrity;
 import com.jintegrity.helper.JPAHelper;
 import com.mehana.smschat.business.LoginBusiness;
+import com.mehana.smschat.helper.Given;
 import com.mehana.smschat.model.Usuario;
 import com.mehana.smschat.repository.LoginRepository;
 
