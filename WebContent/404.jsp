@@ -6,9 +6,9 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 		<link type="image/x-icon" rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
 
-		<meta name="description" content="VRaptor Starting Project" />
-		<meta name="author" content="Washington Botelho dos Santos"/>
-		<meta name="keywords" content="vraptor,starting,project"/>
+		<meta name="description" content="SMSChat" />
+		<meta name="author" content="Maruen Mehana"/>
+		<meta name="keywords" content="sms,chat,call center"/>
 
 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css"/>
 
