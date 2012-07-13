@@ -34,18 +34,21 @@ public class PermissionInterceptor implements Interceptor {
 	}
 
 	public void intercept(InterceptorStack stack, ResourceMethod method, Object resource) {
-		if (userSession.isLogged()) {
-			Permission methodPermission = method.getMethod().getAnnotation(Permission.class);
-			Permission controllerPermission = method.getResource().getType().getAnnotation(Permission.class);
-			
-			if (this.hasAccess(methodPermission) && this.hasAccess(controllerPermission)) {
-				stack.next(method, resource);
-			} else {
-				result.use(http()).sendError(500, i18n("voce.nao.tem.permissao.para.tal.acao"));
-			}
-		} else {
-			result.redirectTo(IndexController.class).index();
-		}
+//		if (userSession.isLogged()) {
+//			Permission methodPermission = method.getMethod().getAnnotation(Permission.class);
+//			Permission controllerPermission = method.getResource().getType().getAnnotation(Permission.class);
+//			
+//			if (this.hasAccess(methodPermission) && this.hasAccess(controllerPermission)) {
+//				stack.next(method, resource);
+//			} else {
+//				result.use(http()).sendError(500, i18n("voce.nao.tem.permissao.para.tal.acao"));
+//			}
+//		} else {
+//			result.redirectTo(IndexController.class).index();
+//		}
+		
+		stack.next(method,resource);
+		
 	}
 
 	private boolean hasAccess(Permission permission) {
