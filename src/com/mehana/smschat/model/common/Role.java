@@ -1,6 +1,6 @@
 package com.mehana.smschat.model.common;
 
-public enum Perfil {
+public enum Role {
 
 	MEMBRO("Membro"),
 	MODERADOR("Moderador"),
@@ -8,7 +8,7 @@ public enum Perfil {
 
 	private String label;
 
-	private Perfil(String label) {
+	private Role(String label) {
 		this.label = label;
 	}
 

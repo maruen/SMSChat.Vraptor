@@ -1,4 +1,4 @@
-package com.mehana.smschat.repository.common;
+package com.mehana.smschat.dao;
 
 import java.util.Collection;
 
@@ -6,7 +6,7 @@ import com.mehana.smschat.exception.CommonException;
 import com.mehana.smschat.model.common.AbstractEntity;
 
 
-public interface GenericRepository<T extends AbstractEntity> {
+public interface GenericDAO<T extends AbstractEntity> {
 
 	Collection<T> all();
 

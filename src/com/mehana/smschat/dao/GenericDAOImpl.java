@@ -1,4 +1,4 @@
-package com.mehana.smschat.business.common;
+package com.mehana.smschat.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
@@ -8,15 +8,14 @@ import javax.persistence.Query;
 
 import com.mehana.smschat.exception.CommonException;
 import com.mehana.smschat.model.common.AbstractEntity;
-import com.mehana.smschat.repository.common.GenericRepository;
 
 
-public abstract class GenericBusiness<T extends AbstractEntity> implements GenericRepository<T> {
+public abstract class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO<T> {
 
 	protected final EntityManager manager;
 	private final Class<T> aClass;
 
-	protected GenericBusiness(EntityManager manager) {
+	protected GenericDAOImpl(EntityManager manager) {
 		this.manager = manager;
 
 		@SuppressWarnings("unchecked")

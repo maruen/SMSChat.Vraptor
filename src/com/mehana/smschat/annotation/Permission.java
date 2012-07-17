@@ -5,13 +5,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.mehana.smschat.model.common.Perfil;
+import com.mehana.smschat.model.common.Role;
 
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.TYPE, ElementType.METHOD })
 public @interface Permission {
 
-	public Perfil[] value();
+	public Role[] value();
 
 }

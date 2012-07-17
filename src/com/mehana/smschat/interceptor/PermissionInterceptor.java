@@ -1,16 +1,7 @@
 package com.mehana.smschat.interceptor;
 
-import static br.com.caelum.vraptor.view.Results.http;
-import static com.mehana.smschat.util.Utils.i18n;
-
 import java.util.Arrays;
 import java.util.Collection;
-
-import com.mehana.smschat.annotation.Permission;
-import com.mehana.smschat.annotation.Public;
-import com.mehana.smschat.component.UserSession;
-import com.mehana.smschat.controller.IndexController;
-import com.mehana.smschat.model.common.Perfil;
 
 import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
@@ -18,9 +9,15 @@ import br.com.caelum.vraptor.core.InterceptorStack;
 import br.com.caelum.vraptor.interceptor.Interceptor;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 
+import com.mehana.smschat.annotation.Permission;
+import com.mehana.smschat.annotation.Public;
+import com.mehana.smschat.component.UserSession;
+import com.mehana.smschat.model.common.Role;
+
 @Intercepts
 public class PermissionInterceptor implements Interceptor {
 
+	@SuppressWarnings("unused")
 	private final Result result;
 	private final UserSession userSession;
 	
@@ -51,14 +48,15 @@ public class PermissionInterceptor implements Interceptor {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private boolean hasAccess(Permission permission) {
 		if (permission == null) {
 			return true;
 		}
 
-		Collection<Perfil> perfilList = Arrays.asList(permission.value());
+		Collection<Role> perfilList = Arrays.asList(permission.value());
 
-		return perfilList.contains(userSession.getUser().getPerfil());
+		return perfilList.contains(userSession.getUser().getRole());
 	}
 
 }

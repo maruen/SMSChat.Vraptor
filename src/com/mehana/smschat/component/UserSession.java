@@ -2,10 +2,10 @@ package com.mehana.smschat.component;
 
 import java.io.Serializable;
 
-import com.mehana.smschat.model.Usuario;
-
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
+
+import com.mehana.smschat.model.User;
 
 @Component
 @SessionScoped
@@ -13,7 +13,7 @@ public class UserSession implements Serializable {
 
 	private static final long serialVersionUID = 8113472081570152045L;
 
-	private Usuario user;
+	private User user;
 	private String language;
 
 	public boolean isLogged() {
@@ -24,11 +24,11 @@ public class UserSession implements Serializable {
 		user = null;
 	}
 
-	public Usuario getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(Usuario user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

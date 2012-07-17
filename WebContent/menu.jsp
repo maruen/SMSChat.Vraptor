@@ -14,7 +14,7 @@
 	<c:choose>
 		<c:when test="${userSession.user == null}">Visitante</c:when>
 		<c:otherwise>
-			${userSession.user.nome} (<a href="${pageContext.request.contextPath}/logout">sair</a>)
+			${userSession.user.name} (<a href="${pageContext.request.contextPath}/logout">sair</a>)
 		</c:otherwise>
 	</c:choose>
 </div>
