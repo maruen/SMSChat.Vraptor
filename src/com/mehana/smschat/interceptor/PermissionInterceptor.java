@@ -12,7 +12,7 @@ import br.com.caelum.vraptor.resource.ResourceMethod;
 import com.mehana.smschat.annotation.Permission;
 import com.mehana.smschat.annotation.Public;
 import com.mehana.smschat.component.UserSession;
-import com.mehana.smschat.model.common.Role;
+import com.mehana.smschat.model.Role;
 
 @Intercepts
 public class PermissionInterceptor implements Interceptor {

@@ -1,4 +1,4 @@
-package com.mehana.smschat.model.common;
+package com.mehana.smschat.model;
 
 public enum Role {
 

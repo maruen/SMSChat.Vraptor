@@ -1,4 +1,4 @@
-package com.mehana.smschat.model.common;
+package com.mehana.smschat.model;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.mehana.smschat.exception.CommonException;
-import com.mehana.smschat.model.common.AbstractEntity;
+import com.mehana.smschat.model.AbstractEntity;
 
 
 public abstract class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO<T> {

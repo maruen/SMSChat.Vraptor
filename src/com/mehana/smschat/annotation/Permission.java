@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import com.mehana.smschat.model.common.Role;
+import com.mehana.smschat.model.Role;
 
 
 @Retention(RetentionPolicy.RUNTIME)
