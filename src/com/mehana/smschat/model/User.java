@@ -4,14 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
 
 import org.hibernate.validator.Email;
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
-
-import com.mehana.smschat.model.AbstractEntity;
-import com.mehana.smschat.model.Role;
 
 
 /**

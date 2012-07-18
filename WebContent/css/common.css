@@ -1,0 +1,87 @@
+
+.chat {
+	float: left;
+	position: relative;
+	margin: 0 0 0 5%;
+	width: 70%;
+	height: auto;
+	display: none;
+}
+
+.box {
+	background: #FFF url(../img/bgTabContent.jpg) top repeat-x;
+	border: solid 1px #CDCDCD;
+	padding: 15px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.bottomMessage {
+	font: 11px Arial;
+	color: #666;
+	float: right;
+}
+
+.msg1 {
+    font-size: 14px;
+    text-shadow: -1px -1px 1px #cccccc;
+    color: #617798;
+}
+
+input[type="button"].sbtnDlg {
+	font-size: 10pt;
+	font-family: inherit;
+	border: 1px solid #808080;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin: 1px;
+	color: white;
+	background-color: #81a0b5;
+	width: 100px;
+}
+
+input[type="button"].sbtnDlg:hover {
+	margin: 1px;
+	background-color: #006bb5;
+}
+
+input[type="button"].sbtnDlg:active {
+	margin: 1px;
+	font-weight: bold;
+	background-color: #006bb5;
+}
+
+input[type="button"].sbtnDlg:focus {
+	margin: 0px;
+	font-weight: bold;
+	background-color: #006bb5;
+}
+
+input[type="button"].inpBtnEm {
+	border: 1px solid #444;
+	margin: 1px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11pt;
+	color: white;
+	background-color: #81a0b5;
+	width:140px;
+	height:22px;
+}
+
+div.textInput {
+	border: 0px;
+	float: left;
+	position: relative; 
+	margin:10px 0px 10px 0px;
+	padding: 3px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+textarea.stxaDlg {
+	font-family: inherit;
+	font-size: 10pt;
+	border: 1px solid #444;
+	background-color: white;
+}

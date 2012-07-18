@@ -1,3 +1,5 @@
+<%@page import="com.mehana.smschat.model.User"%>
+
 <head>
 	<title>SMSChat</title>
 </head>
@@ -5,9 +7,10 @@
 	<c:if test="${userSession.user == null}">
 		<form action="${pageContext.request.contextPath}/autenticate" method="post">
 			E-mail: <input type="text" name="entity.email"/><br/>
-			Senha: <input type="text" name="entity.password"/><br/>
+			Senha: <input  type="text" name="entity.password"/><br/>
 	
 			<input type="submit" value="Autenticar" class="btn" />
 		</form>
 	</c:if>
+		
 </body>

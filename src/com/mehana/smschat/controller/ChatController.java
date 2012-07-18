@@ -1,8 +1,8 @@
 package com.mehana.smschat.controller;
 
-import static br.com.caelum.vraptor.view.Results.referer;
 import static com.mehana.smschat.util.Utils.i18n;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -13,15 +13,15 @@ import com.mehana.smschat.dao.SMSChatDAO;
 import com.mehana.smschat.model.User;
 
 @Resource
-public class LoginController {
+public class ChatController {
 
 	private final Result result;
 	private final SMSChatDAO smschatDAO;
 	private final UserSession userSession;
 
-	public LoginController(Result result, SMSChatDAO repository, UserSession userSession) {
+	public ChatController(Result result, SMSChatDAO smschatDAO, UserSession userSession) {
 		this.result = result;
-		this.smschatDAO = repository;
+		this.smschatDAO = smschatDAO;
 		this.userSession = userSession;
 	}
 
@@ -34,7 +34,7 @@ public class LoginController {
 			userSession.setUser(user);
 
 			try {
-				result.use(referer()).redirect();
+				result.redirectTo(ChatController.class).chat();
 			} catch (IllegalStateException e) {
 				result.redirectTo(IndexController.class).index();
 			}
@@ -42,6 +42,12 @@ public class LoginController {
 			result.include("error", i18n("email.senha.incorreta")).redirectTo(IndexController.class).index();
 		}
 	}
+	
+	@Path("/chat")
+	public void chat() {
+
+	}
+	
 
 	@Get("/logout")
 	public void logout() {

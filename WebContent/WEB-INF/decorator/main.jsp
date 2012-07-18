@@ -8,19 +8,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 		<link type="image/x-icon" rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
 
-		<meta name="description" content="VRaptor Starting Project" />
-		<meta name="author" content="Washington Botelho dos Santos"/>
-		<meta name="keywords" content="vraptor,starting,project"/>
+		<meta name="description" content="Chat by SMS" />
+		<meta name="author" content="Maruen Mehana"/>
+		<meta name="keywords" content="SMSChat"/>
 
 		<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css"/>
 
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/jquery-1.7.1.js"></script>
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/jquery.colorbox-1.3.16.min.js"></script>
-
 		<script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/javascript.js"></script>
 
-		<title><decorator:title default="VRaptor | Starting Project"/></title>
+	    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/jWebSocket.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/SMSChatPlugin.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath}/js/jquery.livequery.js"></script>
+		
+
+		<title><decorator:title default="SMSChat"/></title>
 	</head>
 	<body>
 		<div id="mensagem"></div>
@@ -51,24 +55,6 @@
 	
 			<div id="rodape"><%@ include file="/rodape.jsp" %></div>
 		</div>
-
-		<script type="text/javascript">
-			function dummy() {
-				alert('Dummy function! =~');
-			};
-
-			$.ajaxSetup({
-				type: 'get',
-				dataType: 'json',
-				scriptCharset: 'utf-8',
-				error: function(xhr, status, error) {
-					mensagem('<fmt:message key="erro"/>', getError(xhr));
-				}
-			});
-
-			$(function() {
-				console.log('Ready! (:');
-			});
-		</script>
+		
 	</body>
 </html>
