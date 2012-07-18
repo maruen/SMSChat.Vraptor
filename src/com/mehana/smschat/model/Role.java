@@ -2,22 +2,20 @@ package com.mehana.smschat.model;
 
 public enum Role {
 
-	MEMBRO("Membro"),
-	MODERADOR("Moderador"),
-	ADMINISTRADOR("Administrador");
+    MEMBRO("Membro"), MODERADOR("Moderador"), ADMINISTRADOR("Administrador");
 
-	private String label;
+    private String label;
 
-	private Role(String label) {
-		this.label = label;
-	}
+    private Role(String label) {
+        this.label = label;
+    }
 
-	public String getLabel() {
-		return label;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
 }

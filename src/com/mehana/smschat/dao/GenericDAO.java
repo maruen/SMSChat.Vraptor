@@ -5,15 +5,14 @@ import java.util.Collection;
 import com.mehana.smschat.exception.CommonException;
 import com.mehana.smschat.model.AbstractEntity;
 
-
 public interface GenericDAO<T extends AbstractEntity> {
 
-	Collection<T> all();
+    Collection<T> all();
 
-	T loadById(Long id);
+    T loadById(Long id);
 
-	void remove(T entity);
+    void remove(T entity);
 
-	T save(T entity) throws CommonException;
+    T save(T entity) throws CommonException;
 
 }

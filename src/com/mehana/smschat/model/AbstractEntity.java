@@ -7,18 +7,18 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class AbstractEntity implements java.io.Serializable {
 
-	private static final long serialVersionUID = 956419232222987050L;
+    private static final long serialVersionUID = 956419232222987050L;
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long              id;
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }
