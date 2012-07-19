@@ -2,6 +2,7 @@ package com.mehana.smschat.dao.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
 import br.com.caelum.vraptor.ioc.Component;
 
@@ -19,9 +20,11 @@ public class ConfigDAOImpl implements ConfigDAO {
 
     public Config getProperty(String property) {
         try {
-            Config config = manager.find(Config.class, "property");
-            return config;
-
+            
+        	Query query = manager.createQuery("SELECT obj FROM Config obj WHERE obj.property= :property", Config.class);
+        	query.setParameter("property",property);
+        	return (Config) query.getSingleResult();
+  
         } catch (NoResultException e) {
             return null;
         }
