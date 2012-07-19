@@ -57,6 +57,11 @@ public class ChatController {
     public void chat() {
 
     }
+    
+    @Path("/SMSSimulator")
+    public void SMSSimulator() {
+
+    }
 
     @Get("/logout")
     public void logout() {

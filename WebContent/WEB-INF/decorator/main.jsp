@@ -309,8 +309,8 @@
 			});
 			
 			function openSMSSimulatorPage() {
-				alert("Passing here");
-				window.open('./SMSSimulator.jsp','mywin','left=(screen.width-500)/2,top=(screen.height-500)/2,width=500,height=500,toolbar=1,resizable=0');
+				
+				window.open('${pageContext.request.contextPath}/SMSSimulator','mywin','left=(screen.width-500)/2,top=(screen.height-500)/2,width=500,height=500,toolbar=1,resizable=0');
 			}
 		
 
