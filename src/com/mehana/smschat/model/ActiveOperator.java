@@ -14,61 +14,62 @@ import javax.persistence.Entity;
 @Entity
 public class ActiveOperator extends AbstractEntity {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Column
-    private String            username;
+	@Column
+	private String username;
 
-    @Column
-    private String            connector;
+	@Column
+	private String connector;
 
-    @Column
-    private Date              timeStarted;
+	@Column
+	private Date timeStarted;
 
-    @Column
-    private String            servername;
+	@Column
+	private String servername;
 
-    public ActiveOperator() {
-    }
+	public ActiveOperator() {
+	}
 
-    public ActiveOperator(String username, String connector, Date timeStarted, String servername) {
-        super();
-        this.username = username;
-        this.connector = connector;
-        this.timeStarted = timeStarted;
-        this.servername = servername;
-    }
+	public ActiveOperator(String username, String connector, Date timeStarted,
+			String servername) {
+		super();
+		this.username = username;
+		this.connector = connector;
+		this.timeStarted = timeStarted;
+		this.servername = servername;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public String getConnector() {
-        return connector;
-    }
+	public String getConnector() {
+		return connector;
+	}
 
-    public void setConnector(String connector) {
-        this.connector = connector;
-    }
+	public void setConnector(String connector) {
+		this.connector = connector;
+	}
 
-    public Date getTimeStarted() {
-        return timeStarted;
-    }
+	public Date getTimeStarted() {
+		return timeStarted;
+	}
 
-    public void setTimeStarted(Date timeStarted) {
-        this.timeStarted = timeStarted;
-    }
+	public void setTimeStarted(Date timeStarted) {
+		this.timeStarted = timeStarted;
+	}
 
-    public String getServername() {
-        return servername;
-    }
+	public String getServername() {
+		return servername;
+	}
 
-    public void setServername(String servername) {
-        this.servername = servername;
-    }
+	public void setServername(String servername) {
+		this.servername = servername;
+	}
 
 }

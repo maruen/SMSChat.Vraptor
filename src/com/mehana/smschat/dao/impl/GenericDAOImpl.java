@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.mehana.smschat.dao.GenericDAO;
-import com.mehana.smschat.exception.CommonException;
 import com.mehana.smschat.model.AbstractEntity;
 
 public abstract class GenericDAOImpl<T extends AbstractEntity> implements GenericDAO<T> {
@@ -41,7 +40,7 @@ public abstract class GenericDAOImpl<T extends AbstractEntity> implements Generi
         manager.remove(manager.getReference(aClass, entity.getId()));
     }
 
-    public T save(T entity) throws CommonException {
+    public T save(T entity) {
         return manager.merge(entity);
     }
 

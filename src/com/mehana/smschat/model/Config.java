@@ -11,53 +11,53 @@ import javax.persistence.Entity;
 @Entity
 public class Config extends AbstractEntity {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Column
-    private String            property;
+	@Column
+	private String property;
 
-    @Column
-    private String            value;
+	@Column
+	private String value;
 
-    @Column
-    private String            server;
+	@Column
+	private String server;
 
-    @Column
-    private String            description;
+	@Column
+	private String description;
 
-    public Config() {
-    }
+	public Config() {
+	}
 
-    public String getProperty() {
-        return property;
-    }
+	public String getProperty() {
+		return property;
+	}
 
-    public void setProperty(String property) {
-        this.property = property;
-    }
+	public void setProperty(String property) {
+		this.property = property;
+	}
 
-    public String getValue() {
-        return value;
-    }
+	public String getValue() {
+		return value;
+	}
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public String getServer() {
-        return server;
-    }
+	public String getServer() {
+		return server;
+	}
 
-    public void setServer(String server) {
-        this.server = server;
-    }
+	public void setServer(String server) {
+		this.server = server;
+	}
 
 }

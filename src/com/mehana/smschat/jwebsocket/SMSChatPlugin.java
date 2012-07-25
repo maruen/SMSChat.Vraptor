@@ -1,4 +1,4 @@
-package br.com.mehana.chat.server;
+package com.mehana.smschat.jwebsocket;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,11 +11,13 @@ import org.jwebsocket.logging.Logging;
 import org.jwebsocket.plugins.TokenPlugIn;
 import org.jwebsocket.token.Token;
 
-import br.com.mehana.chat.dao.SMSChatDAO;
-import br.com.mehana.chat.middleware.SMSSender3G;
-import br.com.mehana.chat.model.MsgHist;
-import br.com.mehana.chat.object.SMSMessage;
-import br.com.mehana.chat.utils.EscapeChars;
+import br.com.caelum.vraptor.Resource;
+
+import com.mehana.smschat.dao.GenericDAO;
+import com.mehana.smschat.middleware.SMSSender3G;
+import com.mehana.smschat.model.MsgHist;
+import com.mehana.smschat.object.SMSMessage;
+import com.mehana.smschat.util.EscapeChars;
 
 /**
  * 
@@ -24,13 +26,14 @@ import br.com.mehana.chat.utils.EscapeChars;
  *
  */
 
+@Resource
 public class SMSChatPlugin extends TokenPlugIn {
 
 
 	private static Logger log = Logging.getLogger(SMSChatPlugin.class);
 	private static String NS_CSS_CHAT_PLUGIN = "br.com.mehana.chat.server.plugins.SMSChatPlugin";
 	private static String CSS_CHAT_PLUGIN_VAR = NS_CSS_CHAT_PLUGIN + ".started";
-	private SMSChatDAO cssChatDAO = new SMSChatDAO();
+	private GenericDAO<MsgHist> msgHistDAO; 
 	private static SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 	public SMSChatPlugin() {
@@ -65,7 +68,6 @@ public class SMSChatPlugin extends TokenPlugIn {
 				sendToken( aConnector,aConnector, lResponse);
 			
 			} else if (lType.equals("sendSMS")) {
-				//JMSMessage jmsMessage = new JMSMessage();
 				SMSMessage smsMessage = new SMSMessage();
 				
 				String escapedMsg = EscapeChars.escapeCharsToSMS(aToken.getString("message"));
@@ -73,37 +75,29 @@ public class SMSChatPlugin extends TokenPlugIn {
 				smsMessage.setModem3gMsisdn(aToken.getString("modem3gMsisdn"));
 				smsMessage.setText(escapedMsg);
 				
-				log.info("Inserting into table CSS_MSG_HIST: [MSISDN: " + aToken.getString("msisdn") + 
+				log.info("Inserting into table MSG_HIST: [MSISDN: " + aToken.getString("msisdn") + 
 						", MESSAGE: " + aToken.getString("message") + "]");
 				
-				MsgHist cssMsgHist = new MsgHist();
-				cssMsgHist.setDt_sys(Calendar.getInstance().getTime());
-				cssMsgHist.setSession_id(1L);
-				cssMsgHist.setMsisdn(aToken.getString("mobileMsisdn"));
-				cssMsgHist.setOperator(aToken.getString("username"));
-				cssMsgHist.setMsg_orig(aToken.getString("message"));
-				cssMsgHist.setOriginator(aToken.getString("username"));
-				cssMsgHist.setMsg_norm(escapedMsg);
-				cssMsgHist.setDt_plat(Calendar.getInstance().getTime());
-				cssChatDAO.insertToMsgHist(cssMsgHist);
+				MsgHist msgHist = new MsgHist();
+				msgHist.setDt_sys(Calendar.getInstance().getTime());
+				msgHist.setSession_id(1L);
+				msgHist.setMsisdn(aToken.getString("mobileMsisdn"));
+				msgHist.setOperator(aToken.getString("username"));
+				msgHist.setMsg_orig(aToken.getString("message"));
+				msgHist.setOriginator(aToken.getString("username"));
+				msgHist.setMsg_norm(escapedMsg);
+				msgHist.setDt_plat(Calendar.getInstance().getTime());
+				msgHistDAO.save(msgHist);
 				
 				Token lResponse = createResponse(aToken);
 				lResponse.put("username",aConnector.getUsername());
 				lResponse.put("message",aToken.getString("message"));
 				lResponse.put("msisdn",aToken.getString("mobileMsisdn"));
 				lResponse.put("time", sdf.format(new Date()));
-				sendToken( aConnector,aConnector, lResponse);
+				sendToken(aConnector,aConnector, lResponse);
 				
 				new SMSSender3G(smsMessage).start();
-				
-//				jmsMessage.setMessage(smsMessage);
-//				try {
-//					JMS.postRequest(jmsMessage);
-//				} catch (NamingException e) {
-//					e.printStackTrace();
-//				} catch (JMSException e) {
-//					e.printStackTrace();
-//				}
+
 			}
 		}
 	}

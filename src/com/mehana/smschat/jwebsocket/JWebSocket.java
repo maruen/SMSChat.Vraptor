@@ -1,4 +1,4 @@
-package br.com.mehana.chat.server;
+package com.mehana.smschat.jwebsocket;
 
 import java.io.IOException;
 import java.util.Calendar;
@@ -19,11 +19,13 @@ import org.jwebsocket.logging.Logging;
 import org.jwebsocket.server.TokenServer;
 import org.jwebsocket.token.Token;
 
-import br.com.mehana.chat.dao.SMSChatDAO;
-import br.com.mehana.chat.jms.SMSListener;
-import br.com.mehana.chat.model.ActiveOperator;
-import br.com.mehana.chat.model.MsgHist;
-import br.com.mehana.chat.object.SMSMessage;
+import br.com.caelum.vraptor.Resource;
+
+import com.mehana.smschat.dao.ActiveOperatorDAO;
+import com.mehana.smschat.dao.GenericDAO;
+import com.mehana.smschat.model.ActiveOperator;
+import com.mehana.smschat.model.MsgHist;
+import com.mehana.smschat.object.SMSMessage;
 
 
 /**
@@ -32,11 +34,13 @@ import br.com.mehana.chat.object.SMSMessage;
  * @author Maruen Mehana
  */
 
+@Resource
 public class JWebSocket extends HttpServlet implements	WebSocketServerTokenListener {
 	private static final long serialVersionUID = 1L;
 	private static Logger log = null;
-	private SMSChatDAO cssChatDAO = new SMSChatDAO();
-
+	private GenericDAO<MsgHist> msgHistDAO;
+	private ActiveOperatorDAO activeOperatorDAO;
+	
 	protected void processRequest(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
 		boolean fromSimulator = (request.getParameter("fromSimulator") == null) ? false	: true;
@@ -44,24 +48,21 @@ public class JWebSocket extends HttpServlet implements	WebSocketServerTokenListe
 		smsMessage.setMobileMsisdn(request.getParameter("telefone"));
 		smsMessage.setText(request.getParameter("texto"));
 		
-		log.info("Inserting into table CSS_MSG_HIST: [MSISDN: " + request.getParameter("telefone") + 
+		log.info("Inserting into table MSG_HIST: [MSISDN: " + request.getParameter("telefone") + 
 				", MESSAGE: " + request.getParameter("texto") + "]");
 		
-		MsgHist cssMsgHist = new MsgHist();
-		cssMsgHist.setDt_sys(Calendar.getInstance().getTime());
-		cssMsgHist.setSession_id(1L);
-		cssMsgHist.setMsisdn(request.getParameter("telefone"));
-		cssMsgHist.setOperator("operator");
-		cssMsgHist.setMsg_orig(request.getParameter("texto"));
-		cssMsgHist.setOriginator(request.getParameter("telefone"));
-		cssMsgHist.setMsg_norm(request.getParameter("texto").toUpperCase());
-		cssMsgHist.setDt_plat(Calendar.getInstance().getTime());
-		cssChatDAO.insertToMsgHist(cssMsgHist);
+		MsgHist msgHist = new MsgHist();
+		msgHist.setDt_sys(Calendar.getInstance().getTime());
+		msgHist.setSession_id(1L);
+		msgHist.setMsisdn(request.getParameter("telefone"));
+		msgHist.setOperator("operator");
+		msgHist.setMsg_orig(request.getParameter("texto"));
+		msgHist.setOriginator(request.getParameter("telefone"));
+		msgHist.setMsg_norm(request.getParameter("texto").toUpperCase());
+		msgHist.setDt_plat(Calendar.getInstance().getTime());
+		msgHistDAO.save(msgHist);
 		
-		new SMSListener().process(smsMessage);
-		if (fromSimulator) {
-			response.sendRedirect("pages/chat/SMSSimulator.jsp");
-		}
+		
 
 	}
 
@@ -103,7 +104,7 @@ public class JWebSocket extends HttpServlet implements	WebSocketServerTokenListe
 															   aEvent.getConnector().getId(),
 															   Calendar.getInstance().getTime(),
 															   System.getProperty("weblogic.Name"));
-			cssChatDAO.insertToActiveOperator(activeOperator);
+			activeOperatorDAO.save(activeOperator);
 			
 			
 		} else if (lType != null && ("close".equals(lType) || "logout".equals(lType) ) ) {

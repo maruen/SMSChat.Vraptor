@@ -2,7 +2,6 @@ package com.mehana.smschat.dao;
 
 import java.util.Collection;
 
-import com.mehana.smschat.exception.CommonException;
 import com.mehana.smschat.model.AbstractEntity;
 
 public interface GenericDAO<T extends AbstractEntity> {
@@ -13,6 +12,6 @@ public interface GenericDAO<T extends AbstractEntity> {
 
     void remove(T entity);
 
-    T save(T entity) throws CommonException;
+    T save(T entity);
 
 }
