@@ -13,6 +13,26 @@
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
     <param-value>messages</param-value>
   </context-param>
+  
+  <listener>
+    <description>ServletContextListener</description>
+    <listener-class>com.mehana.smschat.jwebsocket.ContextListener</listener-class>
+  </listener>
+  <listener>
+    <description>HttpSessionListener</description>
+    <listener-class>com.mehana.smschat.jwebsocket.SessionListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>JWebSocket</servlet-name>
+    <servlet-class>com.mehana.smschat.jwebsocket.JWebSocket</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JWebSocket</servlet-name>
+    <url-pattern>/JWebSocket</url-pattern>
+  </servlet-mapping>
+  
+  
   <filter>
     <filter-name>sitemesh</filter-name>
     <filter-class>com.opensymphony.sitemesh.webapp.SiteMeshFilter</filter-class>
