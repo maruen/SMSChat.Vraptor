@@ -1,6 +1,6 @@
 jws.SMSChatPlugIn = {
 
-		NS: "br.com.mehana.chat.server.plugins.SMSChatPlugin",
+		NS: "com.mehana.smschat.jwebsocket.SMSChatPlugin",
 
 		processToken: function( aToken ) {
 

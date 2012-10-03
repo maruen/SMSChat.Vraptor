@@ -8,7 +8,6 @@
   
   <!-- Include these three JS files: -->
   <script type="text/javascript" src="swfobject.js"></script>
-  <script type="text/javascript" src="FABridge.js"></script>
   <script type="text/javascript" src="web_socket.js"></script>
 
   <script type="text/javascript">
@@ -17,14 +16,16 @@
     WEB_SOCKET_SWF_LOCATION = "WebSocketMain.swf";
     // Set this to dump debug message from Flash to console.log:
     WEB_SOCKET_DEBUG = true;
-
+    
+    // Everything below is the same as using standard WebSocket.
+    
     var ws;
     
     function init() {
 
       // Connect to Web Socket.
       // Change host/port here to your own Web Socket server.
-      ws = new WebSocket("ws://localhost:8787/");
+      ws = new WebSocket("ws://127.0.0.1:80/jWebSocket/jWebSocket");
 
       // Set event handlers.
       ws.onopen = function() {

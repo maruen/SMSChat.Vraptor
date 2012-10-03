@@ -6,7 +6,7 @@
 <title>SMS Simulator</title>
 </head>
 <body>
-<form id="myForm" method="post" action="${pageContext.request.contextPath}/CSSJWebSocket" accept-charset="ISO-8859-1" >
+<form id="myForm" method="post" action="${pageContext.request.contextPath}/JWebSocket" accept-charset="ISO-8859-1" >
 	
 	<table>
 		<tr>

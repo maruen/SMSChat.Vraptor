@@ -18,11 +18,11 @@ public class UserDAOImpl implements UserDAO {
         this.manager = manager;
     }
 
-    public User autenticate(String email, String password) {
+    public User autenticate(String username, String password) {
         try {
-            String sql = "from " + User.class.getName() + " where email = :email and password = :password";
+            String sql = "from " + User.class.getName() + " where username = :username and password = :password";
             Query query = manager.createQuery(sql);
-            query.setParameter("email", email);
+            query.setParameter("username", username);
             query.setParameter("password", password);
             return (User) query.getSingleResult();
         } catch (NoResultException e) {

@@ -4,6 +4,6 @@ import com.mehana.smschat.model.User;
 
 public interface UserDAO {
 
-    User autenticate(String email, String password);
+    User autenticate(String username, String password);
 
 }

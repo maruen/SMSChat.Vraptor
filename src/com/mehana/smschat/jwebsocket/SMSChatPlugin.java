@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.jwebsocket.api.WebSocketConnector;
 import org.jwebsocket.kit.PlugInResponse;
 import org.jwebsocket.plugins.TokenPlugIn;
@@ -26,14 +27,12 @@ import com.mehana.smschat.util.EscapeChars;
 @Resource
 public class SMSChatPlugin extends TokenPlugIn {
    
-    private static String           NS_CSS_CHAT_PLUGIN  = "br.com.mehana.chat.server.plugins.SMSChatPlugin";
+    private static String           NS_CSS_CHAT_PLUGIN  = "com.mehana.smschat.jwebsocket.SMSChatPlugin";
     private static String           CSS_CHAT_PLUGIN_VAR = NS_CSS_CHAT_PLUGIN + ".started";
     private GenericDAO<MsgHist>     msgHistDAO;
     private static SimpleDateFormat sdf                 = new SimpleDateFormat("HH:mm:ss");
 
     public SMSChatPlugin() {
-
-       
 
         this.setNamespace(NS_CSS_CHAT_PLUGIN);
     }

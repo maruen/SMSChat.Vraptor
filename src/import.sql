@@ -1,0 +1,1 @@
+insert into User (id,cpf,email,modem3gAlias,modem3gMsisdn,name,password,rg,role,username) values (1,'646.601.682-04','maruen@gmail.com','Line1','11954786371','Maruen Mehana','echoes','39.549.514-3','ADMINISTRADOR','maruen');

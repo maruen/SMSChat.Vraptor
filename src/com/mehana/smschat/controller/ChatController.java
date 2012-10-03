@@ -34,7 +34,7 @@ public class ChatController {
     @Public
     @Post("/autenticate")
     public void autenticate(User entity) {
-        User user = userDAO.autenticate(entity.getEmail(), entity.getPassword());
+        User user = userDAO.autenticate(entity.getUsername(), entity.getPassword());
         
 
         if (user != null) {

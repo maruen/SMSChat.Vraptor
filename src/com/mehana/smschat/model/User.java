@@ -44,7 +44,7 @@ public class User extends AbstractEntity {
     private String            cpf;
 
     @Column
-    private Integer           modem3gMsisdn;
+    private String           modem3gMsisdn;
 
     @Column
     private String            modem3gAlias;
@@ -54,11 +54,11 @@ public class User extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     private Role              role;
 
-    public Integer getModem3gMsisdn() {
+    public String getModem3gMsisdn() {
         return modem3gMsisdn;
     }
 
-    public void setModem3gMsisdn(Integer modem3gMsisdn) {
+    public void setModem3gMsisdn(String modem3gMsisdn) {
         this.modem3gMsisdn = modem3gMsisdn;
     }
 
